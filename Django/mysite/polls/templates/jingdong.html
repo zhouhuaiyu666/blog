@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+    
+
+  </head>
+  <style type="text/css">
+  .aaa{
+        padding-left:50px;/*容器里面的内容从左边距离边框10个像素*/
+        padding-top:10px;
+        
+         width:1200px;
+         height:160px;
+         margin-top: 10px;
+         margin-left: auto;
+         margin-right: auto;
+         
+         }
+  .top{
+            /* 设置宽度高度背景颜色 */
+            height: 50px;
+            width:100%;
+            background:black;
+            position: fixed; /*固定在顶部*/
+            top: 0;/*离顶部的距离为0*/
+        }
+        .top ul{
+            /* 清除ul标签的默认样式 */
+            width: 80%;
+            list-style-type: none;
+            margin: 0;            
+            padding: 0;
+            overflow: hidden;
+
+        }
+        .top li {    
+            float:left; /* 使li内容横向浮动，即横向排列  */
+            margin-right:50px;  /* 两个li之间的距离*/
+        }
+
+        .top li a{
+           /* 设置链接内容显示的格式*/
+            display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
+            color:white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none; /* 去除下划线 */
+        }
+        .top li a:hover{
+            /* 鼠标选中时背景变为黑色 */
+            background-color: red;
+        }
+</style>
+<script >
+window.onload = function ()
+{
+	var y = document.getElementsByClassName("aaa");
+for(var i = 0; i< y.length;i++){
+	if(i%2==1)
+	{
+		y[i].style.backgroundColor="#DCDCDC";
+	}
+  else
+  {y[i].style.backgroundColor="#C0C0C0";} 
+}
+}
+ 
+</script>
+
+
+
+
+  <body >
+
+    <div class="top">
+    <center>
+          <ul >
+          <li><a href="/db">豆瓣TOP250</a></li>
+          <li><a href="/jd">京东</a></li>
+            
+          </ul>
+    </center>
+    </div>
+        
+
+    
+
+     
+  <div style="margin-top: 50px;">
+        {% for jingdong in jingdong_list %}
+       <div class="aaa">
+       <h3>产品名称：{{ jingdong.title }}</h3>
+       <p>价格：{{ jingdong.price}}</p>
+       <p>简介：{{ jingdong.comment }}</p>  
+        </div>
+       {% endfor %}
+  </div>
+    
+
+    
+  </body>
+</html>
